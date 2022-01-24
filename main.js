@@ -4,6 +4,8 @@ const partTwoTime = 1000;
 
 
 window.onload = () => {
+    alert('Переверните телефон в горизонтальное положение)');
+    document.getElementById('video').play();
     setTimeout(partOne, partOneTime);
     setTimeout(appeal, appealTime);
     setTimeout(partTwo, 10);
