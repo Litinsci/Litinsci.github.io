@@ -1,31 +1,15 @@
-const partOneTime = 10000;
-const appealTime = 10000;
+const partOneTime = 13000;
 const partTwoTime = 1000;
 
 
 window.onload = () => {
-    alert('Переверните телефон в горизонтальное положение)');
-    document.getElementById('video').play();
     setTimeout(partOne, partOneTime);
-    setTimeout(appeal, appealTime);
+    setTimeout(appeal, partOneTime);
     setTimeout(partTwo, 10);
-
 }
 
 
 const partOne = () => {
-    // const partOneBloks = document.querySelectorAll('.part-one');
-    // partOneBloks.forEach(el => {
-    //     el.style.bottom = '-1400px';
-    // });
-
-    // setTimeout(()=>{
-    //     partOneBloks.forEach(el => {
-    //         el.style.display = 'none';
-    //     });
-    // }, partTwoTime);
-
-    // 
     const partOneBloks = document.querySelectorAll('.part-one');
     partOneBloks.forEach(el => {
         const interval1 =  setInterval(() => {
@@ -34,26 +18,23 @@ const partOne = () => {
 
         setTimeout(() => {
            clearInterval(interval1) 
-        }, 30000);
+        }, 35000);
     });
 }
 
+
 const appeal = () => {
     const appealBlok = document.querySelector('.appeal');
-    appealBlok.style.right = '-450px';
+    appealBlok.style.right = `${((window.innerWidth - window.innerWidth * 0.2) /2) * -1}px`;
 }
 
 const partTwo = () => {
     const partTwoBloks = document.querySelectorAll('.part-two');
     partTwoBloks.forEach(el => {
-        // el.style.bottom = '1500px';
         setInterval(() => {
             toUp(el);
         }, 500);
 
-        // setTimeout(() => {
-        //    clearInterval(interval1) 
-        // }, 30000);
     });
 }
 
@@ -69,10 +50,10 @@ const toDown = (el) => {
     }
 }
 
-let toUpCss= -500;
+let toUpCss= -499;
 const toUp = el => {
-    if (toUpCss <= 1400) {
-        toUpCss=toUpCss + 1;
+    if (toUpCss <= 1401) {
+        toUpCss++;
         el.style.bottom = `${toUpCss}px`;
     } else {
         return;
